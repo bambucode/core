@@ -25,13 +25,13 @@ nav.sidebar {
 		padding-top:28px;
 		h1 a {
 			display:block;
-			width:72px;
-			height:16px;
+			width:92px;
+			height:auto;
 			background:image-url('shoppe/shoppe.svg') no-repeat;
-			background-size:72px 16px;
+			background-size:90px auto;
 			text-indent:-40000px;
 		}
-		p { color:#fff; font-size:0.9em; margin-top:4px; }
+		p { color:#fff; font-size:0.5em; margin-top:4px; }
 	}
 	
 	p.logged {

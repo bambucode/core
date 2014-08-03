@@ -33,5 +33,5 @@
   %p.submit
     - unless @delivery_service.new_record?
       %span.right= link_to "Eliminar", [@delivery_service], :class => 'button purple', :method => :delete, :data => {:confirm => "¿Estás seguro?"}
-    = f.submit :class => 'button green'
+    = f.submit "Guardar", :class => 'button green'
     = link_to "Cancelar", :delivery_services, :class => 'button'
