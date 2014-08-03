@@ -1,0 +1,26 @@
+= form_for @product_category do |f|
+  = f.error_messages
+  = field_set_tag 'Category Details' do
+    .splitContainer
+      %dl.half
+        %dt= f.label :name
+        %dd= f.text_field :name, :class => 'focus text'
+      %dl.half
+        %dt= f.label :permalink
+        %dd= f.text_field :permalink, :class => 'text'
+    %dl
+      %dt= f.label :description
+      %dd= f.text_area :description, :class => 'text'
+  = field_set_tag "Attachments" do
+
+    %dl
+      %dt= f.label :image_file, "Image"
+      %dd
+        = attachment_preview @product_category.image
+        %p= f.file_field :image_file
+
+  %p.submit
+    - unless @product_category.new_record?
+      %span.right= link_to "Delete", @product_category, :class => 'button purple', :method => :delete, :data => {:confirm => "Are you sure you wish to remove this category?"}
+    = f.submit :class => 'button green'
+    = link_to "Cancel", :product_categories, :class => 'button'

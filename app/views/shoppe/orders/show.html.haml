@@ -1,0 +1,28 @@
+- @page_title = 'Order #' + @order.number
+
+= content_for :header do
+  %p.buttons
+    = link_to "Edit", [:edit, @order], :class => 'button'
+    - if @order.accepted?
+      = link_to "Despatch Note", [:despatch_note, @order], :class => 'button', :rel => 'print'
+    = link_to "Back to orders", :orders, :class => 'button grey'
+  %h2.orders Order <b>##{@order.number}</b>
+
+#order
+
+  - if @order.received?
+    = render 'order_details'
+    = render 'status_bar'
+  - else
+    %p.warning
+      This order is still being built by the customer in your store. At
+      present you can only view the items which are within the order.
+
+
+  = field_set_tag "Order Items", :class => 'padded' do
+    = render 'order_items'
+  
+  - if @order.received?
+    = field_set_tag "Payments", :class => 'padded orderPayments' do
+      = render 'payments_table'
+      = render 'payments_form'

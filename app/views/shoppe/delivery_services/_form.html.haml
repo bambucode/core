@@ -1,0 +1,37 @@
+= form_for @delivery_service do |f|
+  = f.error_messages
+  = field_set_tag "Details" do
+    .splitContainer
+      %dl.half
+        %dt= f.label :name
+        %dd= f.text_field :name, :class => 'focus text'
+      %dl.half
+        %dt= f.label :code
+        %dd= f.text_field :code, :class => 'text'
+    .splitContainer
+      %dl.half
+        %dt= f.label :active
+        %dd.checkbox
+          = f.check_box :active
+          = f.label :active, 'Service will be available for use'
+      %dl.half
+        %dt= f.label :default
+        %dd.checkbox
+          = f.check_box :default
+          = f.label :default, 'Service will be used by default (if possible)'
+  = field_set_tag "Courier" do
+    .splitContainer
+      %dl.half
+        %dt= f.label :courier, "Courier Name"
+        %dd= f.text_field :courier, :class => 'text'
+      %dl.half
+        %dt= f.label :tracking_url, "Tracking URL"
+        %dd
+          = f.text_field :tracking_url, :class => 'text'
+          %p.help Use <code>{{consignment_number}}</code> to insert the consignment number.
+
+  %p.submit
+    - unless @delivery_service.new_record?
+      %span.right= link_to "Delete", [@delivery_service], :class => 'button purple', :method => :delete, :data => {:confirm => "Are you sure you wish to remove this delivery service?"}
+    = f.submit :class => 'button green'
+    = link_to "Cancel", :delivery_services, :class => 'button'

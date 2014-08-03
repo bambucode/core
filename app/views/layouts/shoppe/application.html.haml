@@ -1,0 +1,44 @@
+!!!
+%html
+  %head
+    %title #{@page_title} - Shoppe
+    = stylesheet_link_tag 'shoppe/application'
+    = javascript_include_tag 'shoppe/application'
+    = csrf_meta_tags
+    :javascript
+      window.Shoppe = {}
+      window.Shoppe.currencyUnit = "#{h Shoppe.settings.currency_unit}";
+  %body
+    %nav.sidebar
+      %header.logo
+        %h1= link_to "Shoppe", root_path
+        %p v#{Shoppe::VERSION}
+      %p.logged
+        Logged in as #{current_user.full_name}
+      %ul
+        - for item in Shoppe::NavigationManager.find(:admin_primary).items
+          %li= navigation_manager_link item
+          
+        -#%li
+        -#  %span.pending= Shoppe::Order.pending.count
+        -#  = link_to "Orders", [:orders], :class => @active_nav == :orders ? 'active' : ''
+        -#%li= link_to "Products", [:products], :class => @active_nav == :products ? 'active' : ''
+        -#%li= link_to "Product Categories", :product_categories, :class => @active_nav == :product_categories ? 'active' : ''
+        -#%li= link_to "Delivery Services", [:delivery_services], :class => @active_nav == :delivery_services ? 'active' : ''
+        -#%li= link_to "Tax Rates", :tax_rates, :class => @active_nav == :tax_rates ? 'active' : ''
+        -#%li= link_to "Users", [:users], :class => @active_nav == :users ? 'active' : ''
+        -#%li= link_to "Countries", :countries, :class => @active_nav == :countries ? 'active' : ''
+        -#%li= link_to "Settings", :settings, :class => @active_nav == :settings ? 'active' : ''
+        %li= link_to "Logout", [:logout], :method => :delete
+    
+    %header.main
+      = yield :header
+      
+    #content  
+      = display_flash
+      %section.main
+        = yield
+
+    %footer 
+      %p.store= link_to "&larr; Goto #{Shoppe.settings.store_name}".html_safe, '/'
+      
