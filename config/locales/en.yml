@@ -2,18 +2,18 @@ en:
   shoppe:
     helpers:
       submit:
-        create: "Crear un %{model}"
-        update: "Cambiar %{model} creado"
+        create: Crear un %{model}
+        update: Cambiar %{model} creado
     navigation:
       admin_primary:
-        orders: Orders
-        products: Products
-        product_categories: Product Categories
-        delivery_services: Delivery Services
-        tax_rates: Tax Rates
-        users: Users
-        countries: Countries
-        settings: Settings
+        orders: Ordenes
+        products: Productos
+        product_categories: Categorias
+        delivery_services: Servicios de Paqueteria
+        tax_rates: Impuestos
+        users: Usuarios
+        countries: Paises
+        settings: Configuracion
         
     settings:
       
@@ -23,26 +23,26 @@ en:
       
       labels:
         # Labels for fields go here
-        email_address: Store E-Mail Address
+        email_address: Correo electronico de la tienda
       
       options:
         # Options for boolean settings
         demo_mode:
-          affirmative: Enabled
-          negative: Disabled
+          affirmative: Habilitado
+          negative: Deshabilitado
       
       help:
         # Help text for individual fields
-        store_name: This is the name of your store which will be used through the Shoppe admin interface as well as in the default outbound e-mail messages.
-        email_address: The e-mail address to use when sending outbound messages. Must just be an e-mail address.
-        currency_unit: The symbol to be displayed before all numbers which relate to money. Only applies to the admin interface and must be implemented separately in your base application.
-        tax_name: The name for "Tax" which will be displayed in your admin interface. Commonly replaced with VAT in European countries.
-        demo_mode: If enabled, your Shoppe admin interface will allow any users to login and will not permit changes to your users. This should be used with caution and never enabled for a production store.
+        store_name: Nombre de la tienda
+        email_address: Correo en el que se te podrán mandar mensajes
+        currency_unit: Simbolo de moneda
+        tax_name: Nombre del impuesto (IVA, VAT, TAX)
+        demo_mode: Si lo habilitas no podras cambiar la configuracion, usar solo para pruebas.
         
       defaults:
         store_name: Widgets Inc.
         email_address: sales@example.com
         currency_unit: $
-        tax_name: Tax
+        tax_name: IVA
         demo_mode: false
         
