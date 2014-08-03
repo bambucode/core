@@ -1,18 +1,18 @@
-- @page_title = "Product Categories"
+- @page_title = "Categorias de productos"
 
 = content_for :header do
-  %p.buttons=link_to "New category", :new_product_category, :class => 'button green'
-  %h2.products Product Categories
+  %p.buttons=link_to "Nueva categoria", :new_product_category, :class => 'button green'
+  %h2.products Categorias de productos
 
 .table
   %table.data
     %thead
       %tr
-        %th Name
+        %th Nombre
     %tbody
       - if @product_categories.empty?
         %tr.empty
-          %td No categories to display.
+          %td No hay categorias que mostrar.
       - else
         - for cat in @product_categories
           %tr

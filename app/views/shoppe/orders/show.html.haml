@@ -21,6 +21,6 @@
     = render 'order_items'
   
   - if @order.received?
-    = field_set_tag "Metodos de pago", :class => 'padded orderPayments' do
+    = field_set_tag "Pago", :class => 'padded orderPayments' do
       = render 'payments_table'
       = render 'payments_form'
