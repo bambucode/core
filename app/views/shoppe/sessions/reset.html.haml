@@ -1,11 +1,11 @@
-- @page_title = 'Admin Login'
+- @page_title = 'Admin Iniciar Sesión'
 = display_flash
 .loginArea
   %h2 Reset your password
   = form_tag :login_reset, :class => 'login' do
     %p.field
-      = text_field_tag 'email_address', params[:email_address], :class => 'focus', :placeholder => 'E-Mail Address'
+      = text_field_tag 'email_address', params[:email_address], :class => 'focus', :placeholder => 'Correo'
     %p.submit
-      = submit_tag "Login", :class => 'button green'
+      = submit_tag "Iniciar Sesión", :class => 'button green'
     %p.reset
-      = link_to "Back to login", login_path
+      = link_to "Regresar", login_path
