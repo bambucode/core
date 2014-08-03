@@ -1,40 +1,28 @@
-# Shoppe
+# Shoppe en Español
 
-Shoppe is an Rails-based e-commerce platform which allows you to easily introduce a
-catalogue-based store into your Rails 4 applications. 
+Plataforma e-commerce basada en Rails 4 en español.
 
-![GemVersion](https://badge.fury.io/rb/shoppe.png)
 
-* [Check out the website](http://tryshoppe.com)
-* [View the demo site](http://demo.tryshoppe.com)
-* [Check out the demo site source](http://github.com/tryshoppe/example-store)
-* [Read the release notes](https://github.com/tryshoppe/core/blob/master/CHANGELOG.md)
-* [Read API documentation](http://api.tryshoppe.com)
+## Características
 
-## Features
-
-* An attractive & easy to use admin interface with integrated authentication
-* Full product/catalogue management
-* Stock control
-* Tax management
-* Flexible & customisable order flow
-* Delivery/shipping control, management & weight-based calculation
+* Atractiva y fácil manera de usar la interfaz admin integrado con autentificación
+* Mantenimiento de producto/catálogo
+* Control de Almacen
+* Mantenimiento de impuestos
+* Flujo de orden personalizado
+* Mantenimiento de envio contemplando el peso del producto
 
 ## Getting Started
 
-Shoppe provides the core framework for the store and you're responsible for creating
-the storefront which your customers will use to purchase products. In addition to
-creating the UI for the frontend, you are also responsible for integrating with whatever
-payment gateway takes your fancy.
+Shoppe provee un framework para una tienda en linea y solo puedas dedicarte a la parte frontal (del cliente) de la aplicación. Al ser responsable del frontend de la aplicación puedes editar y agregar el método de pago que se desee.
 
-### Installing into a new Rails application
+### Instalando la gema en una nueva aplicacion (Rails 4)
 
-To get up and running with Shoppe in a new Rails application is simple. Just follow the
-instructions below and you'll be up and running in minutes.
+Empezar a trabajar con shoppe es muy simple. Solo sigue las siguientes instrucciones:
 
-    rails new my_store
-    cd my_store
-    echo "gem 'shoppe', '~> 1.0'" >> Gemfile
+    rails new mi_tienda
+    cd mi_tienda
+    echo "gem 'shoppe', :git => 'https://github.com/grapheno/core'" >> Gemfile
     bundle
     rails generate shoppe:setup
     rails generate nifty:attachments:migration
@@ -42,12 +30,12 @@ instructions below and you'll be up and running in minutes.
     rake db:migrate shoppe:setup
     rails server
 
-## Contribution
+## Contribuciones
 
-If you'd like to help with this project, please get in touch with me. The best place is on
-Twitter (@adamcooke) or by e-mail to adam@atechmedia.com.
+Cualquiera que quiera ayudar con el proyecto debe ponerse en contacto con nosotros. 
+Twitter @_dijane, @graphenoteam
+Correo contacto@graphen.solutions
 
-## License
+## Licencia
 
-Shoppe is licenced under the MIT license. Full details can be found in the MIT-LICENSE
-file in the root of the repository.
+Shoppe está licenciado bajo "MIT license". Los detalles se encuentran en el repositorio
