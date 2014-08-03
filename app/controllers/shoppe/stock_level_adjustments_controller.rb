@@ -23,7 +23,7 @@ module Shoppe
           @new_sla = @item.stock_level_adjustments.build
           index
         else
-          redirect_to stock_level_adjustments_path(:item_id => params[:item_id], :item_type => params[:item_type]), :notice => "Adjustment has been added successfully"
+          redirect_to stock_level_adjustments_path(:item_id => params[:item_id], :item_type => params[:item_type]), :notice => "Ajuste agregado satisfactoriamente"
         end
       else
         if request.xhr?

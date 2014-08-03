@@ -15,7 +15,7 @@ module Shoppe
     def create
       @product_category = Shoppe::ProductCategory.new(safe_params)
       if @product_category.save
-        redirect_to :product_categories, :flash => {:notice => "Category has been created successfully"}
+        redirect_to :product_categories, :flash => {:notice => "Categoria creada satisfactoriamente"}
       else
         render :action => "new"
       end
@@ -26,7 +26,7 @@ module Shoppe
   
     def update
       if @product_category.update(safe_params)
-        redirect_to [:edit, @product_category], :flash => {:notice => "Category has been updated successfully"}
+        redirect_to [:edit, @product_category], :flash => {:notice => "Categoria modificada satisfactoriamente"}
       else
         render :action => "edit"
       end
@@ -34,7 +34,7 @@ module Shoppe
   
     def destroy
       @product_category.destroy
-      redirect_to :product_categories, :flash => {:notice => "Category has been removed successfully"}
+      redirect_to :product_categories, :flash => {:notice => "Categoria eliminada satisfactoriamente"}
     end
   
     private

@@ -20,7 +20,7 @@ module Shoppe
     def create
       @user = Shoppe::User.new(safe_params)
       if @user.save
-        redirect_to :users, :flash => {:notice => "User has been created successfully"}
+        redirect_to :users, :flash => {:notice => "Usuario creado satisfactoriamente"}
       else
         render :action => "new"
       end
@@ -31,7 +31,7 @@ module Shoppe
   
     def update
       if @user.update(safe_params)
-        redirect_to [:edit, @user], :flash => {:notice => "User has been updated successfully"}
+        redirect_to [:edit, @user], :flash => {:notice => "Usuario modificado satisfactoriamente"}
       else
         render :action => "edit"
       end
@@ -40,7 +40,7 @@ module Shoppe
     def destroy
       raise Shoppe::Error, "You cannot remove yourself" if @user == current_user
       @user.destroy
-      redirect_to :users, :flash => {:notice => "User has been removed successfully"}
+      redirect_to :users, :flash => {:notice => "Usuario eliminado satisfactoriamente"}
     end
   
     private

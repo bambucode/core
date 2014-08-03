@@ -20,14 +20,14 @@ module Shoppe
         @order.status = 'confirming'
         if !request.xhr? && @order.save
           @order.confirm!
-          redirect_to @order, :notice => "Order has been created successfully"
+          redirect_to @order, :notice => "Orden creado satisfactoriamente"
         else
           @order.order_items.build(:ordered_item_type => 'Shoppe::Product')
           render :action => "new"
         end
       end
     rescue Shoppe::Errors::InsufficientStockToFulfil => e
-      flash.now[:alert] = "Insufficient stock to order #{e.out_of_stock_items.map { |t| t.ordered_item.full_name }.to_sentence}. Quantities have been updated to max total stock available."
+      flash.now[:alert] = "Producto insuficiente en almacen de #{e.out_of_stock_items.map { |t| t.ordered_item.full_name }.to_sentence}. Cantidades modificadas al maximo disponible."
       render :action => 'new'
     end
     
@@ -38,7 +38,7 @@ module Shoppe
     def update
       @order.attributes = safe_params
       if !request.xhr? && @order.update_attributes(safe_params)
-        redirect_to @order, :notice => "Order has been saved successfully"
+        redirect_to @order, :notice => "Orden guardado satisfactoriamente"
       else
         render :action => "edit"
       end
@@ -51,21 +51,21 @@ module Shoppe
   
     def accept
       @order.accept!(current_user)
-      redirect_to @order, :notice => "Order has been accepted successfully"
+      redirect_to @order, :notice => "Orden aceptado satisfactoriamente"
     rescue Shoppe::Errors::PaymentDeclined => e
       redirect_to @order, :alert => e.message
     end
   
     def reject
       @order.reject!(current_user)
-      redirect_to @order, :notice => "Order has been rejected successfully"
+      redirect_to @order, :notice => "Orden rechazado satisfactoriamente"
     rescue Shoppe::Errors::PaymentDeclined => e
       redirect_to @order, :alert => e.message
     end
   
     def ship
       @order.ship!(params[:consignment_number], current_user)
-      redirect_to @order, :notice => "Order has been shipped successfully"
+      redirect_to @order, :notice => "Orden enviado satisfactoriamente"
     end
   
     def despatch_note

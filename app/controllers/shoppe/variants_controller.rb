@@ -17,7 +17,7 @@ module Shoppe
     def create
       @variant = @product.variants.build(safe_params)
       if @variant.save
-        redirect_to [@product, :variants], :notice => "Varient has been added successfully"
+        redirect_to [@product, :variants], :notice => "Variante creada satisfactoriamente"
       else
         render :action => "form"
       end
@@ -29,7 +29,7 @@ module Shoppe
     
     def update
       if @variant.update(safe_params)
-        redirect_to edit_product_variant_path(@product, @variant), :notice => "Varient has been updated successfully"
+        redirect_to edit_product_variant_path(@product, @variant), :notice => "Variante modificada satisfactoriamente"
       else
         render :action => "form"
       end
@@ -37,7 +37,7 @@ module Shoppe
     
     def destroy
       @variant.destroy
-      redirect_to [@product, :variants], :notice => "Varient has been removed successfully"
+      redirect_to [@product, :variants], :notice => "Variante eliminada satisfactoriamente"
     end
     
     private

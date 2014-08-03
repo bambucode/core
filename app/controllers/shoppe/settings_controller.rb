@@ -9,7 +9,7 @@ module Shoppe
       end
       
       Shoppe::Setting.update_from_hash(params[:settings].permit!)
-      redirect_to :settings, :notice => "Settings have been updated successfully."
+      redirect_to :settings, :notice => "Configuración  modifcada satisfactoriamente."
     end
     
   end
