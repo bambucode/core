@@ -1,15 +1,15 @@
-- @page_title = "Users"
+- @page_title = "Usuarios"
 
 = content_for :header do
-  %p.buttons=link_to "New user", :new_user, :class => 'button green'
-  %h2.users Users
+  %p.buttons=link_to "Nuevo Usuario", :new_user, :class => 'button green'
+  %h2.users Usuarios
 
 .table
   %table.data
     %thead
       %tr
-        %th Name
-        %th E-Mail Address
+        %th Nombre
+        %th Correo
     %tbody
       - for user in @users
         %tr
