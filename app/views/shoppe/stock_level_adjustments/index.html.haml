@@ -1,17 +1,17 @@
-- @page_title = "Stock Levels - #{@item.name}"
+- @page_title = "Almacen de - #{@item.name}"
 = content_for :header do
   %p.buttons
     - case @item
     - when Shoppe::Product
       - @active_nav = :products
-      = link_to "Edit product", [:edit, @item], :class => 'button'
-      = link_to "Back to product list", :products, :class => 'button'
+      = link_to "Editar producto", [:edit, @item], :class => 'button'
+      = link_to "Regresar", :products, :class => 'button'
       
-  %h2.products Stock Levels for #{@item.name}
+  %h2.products Almacen de #{@item.name}
 
 .table
   %p.info
-    Current stock level is <b>#{@item.stock}</b>
+    La cantidad actual en almacén es <b>#{@item.stock}</b>
     %span.float-right= page_entries_info @stock_level_adjustments
 
   = form_for @new_sla do |f|
@@ -20,16 +20,16 @@
     %table.data
       %thead
         %tr
-          %th{:width => '25%'} Date
-          %th{:width => '50%'} Description
-          %th{:width => '25%'} Adjustment
+          %th{:width => '25%'} Fecha
+          %th{:width => '50%'} Descripción
+          %th{:width => '25%'} Ajuste
       %tbody
         %tr.form
           %td
           %td.desc= f.text_field :description
           %td.adjustment
             = f.text_field :adjustment
-            = f.submit "Add", :class => 'button button-mini green'
+            = f.submit "Agregar", :class => 'button button-mini green'
         - for sla in @stock_level_adjustments
           %tr
             %td= sla.created_at.to_s(:long)
