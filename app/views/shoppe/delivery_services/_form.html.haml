@@ -1,16 +1,16 @@
 = form_for @delivery_service do |f|
   = f.error_messages
-  = field_set_tag "Details" do
+  = field_set_tag "Detalles" do
     .splitContainer
       %dl.half
-        %dt= f.label :name
+        %dt= f.label :name, "Nombre"
         %dd= f.text_field :name, :class => 'focus text'
       %dl.half
-        %dt= f.label :code
+        %dt= f.label :code, "Código"
         %dd= f.text_field :code, :class => 'text'
     .splitContainer
       %dl.half
-        %dt= f.label :active
+        %dt= f.label :active, "Activo"
         %dd.checkbox
           = f.check_box :active
           = f.label :active, 'Service will be available for use'
@@ -19,19 +19,19 @@
         %dd.checkbox
           = f.check_box :default
           = f.label :default, 'Service will be used by default (if possible)'
-  = field_set_tag "Courier" do
+  = field_set_tag "Mensajería" do
     .splitContainer
       %dl.half
-        %dt= f.label :courier, "Courier Name"
+        %dt= f.label :courier, "Nombre mensajería"
         %dd= f.text_field :courier, :class => 'text'
       %dl.half
-        %dt= f.label :tracking_url, "Tracking URL"
+        %dt= f.label :tracking_url, "URL de rastreo"
         %dd
           = f.text_field :tracking_url, :class => 'text'
-          %p.help Use <code>{{consignment_number}}</code> to insert the consignment number.
+          %p.help Use <code>{{consignment_number}}</code> para insertar el numero de rastreo (si disponible).
 
   %p.submit
     - unless @delivery_service.new_record?
-      %span.right= link_to "Delete", [@delivery_service], :class => 'button purple', :method => :delete, :data => {:confirm => "Are you sure you wish to remove this delivery service?"}
+      %span.right= link_to "Eliminar", [@delivery_service], :class => 'button purple', :method => :delete, :data => {:confirm => "¿Estás seguro?"}
     = f.submit :class => 'button green'
-    = link_to "Cancel", :delivery_services, :class => 'button'
+    = link_to "Cancelar", :delivery_services, :class => 'button'

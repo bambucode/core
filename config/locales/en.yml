@@ -1,6 +1,9 @@
 en:
   shoppe:
-    
+    helpers:
+      submit:
+        create: "Crear un %{model}"
+        update: "Cambiar %{model} creado"
     navigation:
       admin_primary:
         orders: Orders

@@ -27,5 +27,5 @@
   %p.submit
     - unless @country.new_record?
       %span.right= link_to "Eliminar", @country, :class => 'button purple', :method => :delete, :data => {:confirm => "¿Deseas eliminar?"}
-    = f.submit "Guardar" :class => 'button green'
+    = f.submit :class => 'button green'
     = link_to "Cancelar", :countries, :class => 'button'
