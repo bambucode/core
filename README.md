@@ -24,6 +24,7 @@ Empezar a trabajar con shoppe es muy simple. Solo sigue las siguientes instrucci
     cd mi_tienda
     echo "gem 'shoppe', :git => 'https://github.com/grapheno/core'" >> Gemfile
     bundle
+    rake db:create
     rails generate shoppe:setup
     rails generate nifty:attachments:migration
     rails generate nifty:key_value_store:migration
