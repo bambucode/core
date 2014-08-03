@@ -1,15 +1,15 @@
-- @page_title = "Variants - #{@product.name}"
+- @page_title = "Variantes - #{@product.name}"
 = content_for :header do
-  %p.buttons= link_to "Back to variants", [@product, :variants], :class => 'button'
-  %h2.products Variants of #{@product.name}
+  %p.buttons= link_to "Regresar", [@product, :variants], :class => 'button'
+  %h2.products Variantes de #{@product.name}
 
 
 = form_for [@product, @variant], :url => @variant.new_record? ? product_variants_path(@product) : product_variant_path(@product, @variant), :html => {:multipart => true} do |f|
   = f.error_messages
-  = field_set_tag "Product Information" do
+  = field_set_tag "Información del Producto" do
     .splitContainer
       %dl.third
-        %dt= f.label :name
+        %dt= f.label :name, "Nombre"
         %dd= f.text_field :name, :class => 'text focus'
       %dl.third
         %dt= f.label :permalink
@@ -18,51 +18,51 @@
         %dt= f.label :sku, 'SKU'
         %dd= f.text_field :sku, :class => 'text'
       
-  = field_set_tag "Image" do
+  = field_set_tag "Imagen" do
     %dl
       %dd
         = attachment_preview @variant.default_image, :hide_if_blank => true
         %p= f.file_field :default_image_file
       
-  = field_set_tag "Pricing" do
+  = field_set_tag "Precio" do
     .splitContainer
       %dl.third
-        %dt= f.label :price
+        %dt= f.label :price, "Precio"
         %dd= f.text_field :price, :class => 'text'
       %dl.third
-        %dt= f.label :cost_price
+        %dt= f.label :cost_price, "Costo"
         %dd= f.text_field :cost_price, :class => 'text'
       %dl.third
-        %dt= f.label :tax_rate_id
+        %dt= f.label :tax_rate_id, "Impuestos"
         %dd= f.collection_select :tax_rate_id, Shoppe::TaxRate.ordered, :id, :description, {:include_blank => true}, {:class => 'chosen-with-deselect', :data => {:placeholder => "No tax"}}
 
-  = field_set_tag "Stock Control" do
+  = field_set_tag "Control de Almacen" do
     .splitContainer
       %dl.half
-        %dt= f.label :weight
+        %dt= f.label :weight, "Peso"
         %dd= f.text_field :weight, :class => 'text'
 
       %dl.half
-        %dt= f.label :stock_control
+        %dt= f.label :stock_control, "Control de Almacen"
         %dd.checkbox
           = f.check_box :stock_control
-          = f.label :stock_control, "Enable stock control for this product?"
+          = f.label :stock_control, "¿Desea habilita el control de almacen?"
 
-  = field_set_tag "Website Properties" do
+  = field_set_tag "Propiedades web" do
     .splitContainer
       %dl.half
-        %dt= f.label :active, "On sale?"
+        %dt= f.label :active, "¿En venta?"
         %dd.checkbox
           = f.check_box :active
-          = f.label :active, "If checked, this product will be displayed within the public store"
+          = f.label :active, "Habilitado para que se publique en la tienda"
       %dl.half
-        %dt= f.label :default, "Default variant?"
+        %dt= f.label :default, "¿Variante predeterminada?"
         %dd.checkbox
           = f.check_box :default
-          = f.label :default, "If checked, this variant will be the default"
+          = f.label :default, "Habilitado para poner como predeterminado."
   
   %p.submit
     - unless @variant.new_record?
-      %span.right= link_to "Delete", product_variant_path(@product, @variant), :class => 'button purple', :method => :delete, :data => {:confirm => "Are you sure you wish to remove this variant?"}
-    = f.submit "Save Variant", :class => 'button green'
-    = link_to "Cancel", :products, :class => 'button'
+      %span.right= link_to "Eliminar", product_variant_path(@product, @variant), :class => 'button purple', :method => :delete, :data => {:confirm => "¿Está seguro?"}
+    = f.submit "Guardar", :class => 'button green'
+    = link_to "Cancelar", :products, :class => 'button'
