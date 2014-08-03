@@ -1,11 +1,11 @@
 .details
   .left
     %dl
-      %dt Name
+      %dt Nombre
       %dd= @order.full_name
-      %dt Company
+      %dt Compañia
       %dd= @order.company.blank? ? '-' : @order.company
-      %dt Billing#{@order.separate_delivery_address? ? '' : '/Delivery'} Address
+      %dt Dirección
       %dd= @order.billing_address1
       %dd= @order.billing_address2
       %dd= @order.billing_address3
@@ -13,7 +13,7 @@
       %dd= @order.billing_postcode
       %dd= @order.billing_country.try(:name)
       - if @order.separate_delivery_address?
-        %dt Delivery Address
+        %dt Dirección de envío
         %dd= @order.delivery_name
         %dd= @order.delivery_address1
         %dd= @order.delivery_address2
@@ -23,30 +23,30 @@
         %dd= @order.delivery_country.try(:name)
   .right
     %dl
-      %dt E-Mail Address
+      %dt Correo
       %dd= mail_to @order.email_address
-      %dt Telephone
+      %dt Teléfono
       %dd= @order.phone_number
-      %dt Weight
+      %dt Peso
       %dd= number_to_weight @order.total_weight
       - if @order.received?
-        %dt Build Time
+        %dt Creación
         %dd= distance_of_time_in_words(@order.created_at, @order.received_at)
       - if @order.invoiced?
-        %dt Invoice Number
+        %dt Numero de factura
         %dd= @order.invoice_number
-      %dt Order Balance
+      %dt Balance
       %dd= boolean_tag @order.paid_in_full?, nil, :true_text => number_to_currency(@order.balance), :false_text => number_to_currency(@order.balance)
     - if @order.accepted? && !@order.shipped?
       = form_tag [:ship, @order] do
         %dl.form
-          %dt.padding= label_tag 'consignment_number', 'Consignment Number'
+          %dt.padding= label_tag 'consignment_number', 'Numero de envío'
           %dd= text_field_tag 'consignment_number', '', :class => 'text'
         %dl.form
-          %dd= submit_tag "Mark as shipped", :class => 'button green button-mini'
+          %dd= submit_tag "Marcar como enviado", :class => 'button green button-mini'
     
     - unless @order.accepted? || @order.rejected?
       %dl.form
         %dd
-          = link_to "Accept", [:accept, @order], :method => :post, :class => 'button green'
-          = link_to "Reject", [:reject, @order], :method => :post, :class => 'button purple'
+          = link_to "Aceptar", [:accept, @order], :method => :post, :class => 'button green'
+          = link_to "Rechazar", [:reject, @order], :method => :post, :class => 'button purple'

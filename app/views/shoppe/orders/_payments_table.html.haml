@@ -4,11 +4,11 @@
       %thead
         %tr
           %th ID
-          %th Type
-          %th Method
-          %th Reference
-          %th Amount
-          %th Refunded?
+          %th Tipo
+          %th Metodo
+          %th Referencia
+          %th Cantidad
+          %th Reembolsable?
           %th
       %tbody
         - for payment in @payments
@@ -24,14 +24,14 @@
               %td{:colspan => 2}
                 %b= number_to_currency payment.amount
                 - if payment.parent_payment_id
-                  from payment ##{payment.parent_payment_id}
+                  por pago ##{payment.parent_payment_id}
             - else
               %td= number_to_currency payment.amount
               %td= boolean_tag payment.refunded?, nil, :true_text => number_to_currency(payment.amount_refunded)
             %td.refund
               - if payment.refundable?
-                = link_to "Refund", [:refund, @order, payment], :class => 'button purple button-mini', :rel => 'dialog'
+                = link_to "Reembolsar", [:refund, @order, payment], :class => 'button purple button-mini', :rel => 'dialog'
               - else
-                = link_to "Delete", [@order, payment], :class => 'button purple button-mini', :data => {:confirm => "Are you sure you wish to remove this payment?"}, :method => :delete
+                = link_to "Eliminar", [@order, payment], :class => 'button purple button-mini', :data => {:confirm => "¿Está seguro?"}, :method => :delete
 - else
-  %p.notice There are no payments recorded for this order...
+  %p.notice No hay metodos de pago en esta orden...

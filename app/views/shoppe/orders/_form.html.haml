@@ -1,55 +1,55 @@
-= field_set_tag "Billing Address" do
+= field_set_tag "Dirección" do
   .splitContainer
     %dl.third
-      %dt= f.label :first_name
+      %dt= f.label :first_name, "Nombre"
       %dd= f.text_field :first_name, :class => 'focus text'
     %dl.third
-      %dt= f.label :last_name
+      %dt= f.label :last_name, "Apellido"
       %dd= f.text_field :last_name, :class => 'text'
     %dl.third
-      %dt= f.label :company
+      %dt= f.label :company, "Compañia"
       %dd= f.text_field :company, :class => 'text'
   %dl
-    %dt= f.label :billing_address1, "Address"
+    %dt= f.label :billing_address1, "Dirección"
     %dd.space= f.text_field :billing_address1, :class => 'text'
     %dd.space= f.text_field :billing_address2, :class => 'text'
     %dd.space= f.text_field :billing_address3, :class => 'text'
     %dd.space= f.text_field :billing_address4, :class => 'text'
   .splitContainer
     %dl.half
-      %dt= f.label :billing_postcode, "Post code"
+      %dt= f.label :billing_postcode, "C.P."
       %dd= f.text_field :billing_postcode, :class => 'text'
     %dl.half
-      %dt= f.label :billing_country_id, "Country"
+      %dt= f.label :billing_country_id, "País"
       %dd= f.collection_select :billing_country_id, Shoppe::Country.ordered, :id, :name, {:include_blank => true}, {:data => {:placeholder => 'Select a country'}}
   
   .splitContainer
     %dl.third
-      %dt= f.label :email_address
+      %dt= f.label :email_address, "Correo"
       %dd= f.text_field :email_address, :class => 'text'
     %dl.third
-      %dt= f.label :phone_number
+      %dt= f.label :phone_number, "Telefono"
       %dd= f.text_field :phone_number, :class => 'text'
     %dl.third
-      %dt= f.label :separate_delivery_address
+      %dt= f.label :separate_delivery_address, "Dirección de envío"
       %dd.checkbox
         = f.check_box :separate_delivery_address
-        = f.label :separate_delivery_address, "Use a seperate delivery address?"
+        = f.label :separate_delivery_address, "Usa una dirección de envío diferente?"
 
-= field_set_tag "Deilvery Address", :class => 'delivery' do
+= field_set_tag "Dirección de envío", :class => 'delivery' do
   %dl
     %dt= f.label :delivery_name
     %dd= f.text_field :delivery_name, :class => 'text'
   %dl
-    %dt= f.label :delivery_address1, "Address"
+    %dt= f.label :delivery_address1, "Dirección"
     %dd.space= f.text_field :delivery_address1, :class => 'text'
     %dd.space= f.text_field :delivery_address2, :class => 'text'
     %dd.space= f.text_field :delivery_address3, :class => 'text'
     %dd.space= f.text_field :delivery_address4, :class => 'text'
   .splitContainer
     %dl.half
-      %dt= f.label :delivery_postcode, "Post code"
+      %dt= f.label :delivery_postcode, "C.P."
       %dd= f.text_field :delivery_postcode, :class => 'text'
     %dl.half
-      %dt= f.label :delivery_country_id, "Country"
-      %dd= f.collection_select :delivery_country_id, Shoppe::Country.ordered, :id, :name, {:include_blank => true}, {:data => {:placeholder => 'Select a country'}}
+      %dt= f.label :delivery_country_id, "País"
+      %dd= f.collection_select :delivery_country_id, Shoppe::Country.ordered, :id, :name, {:include_blank => true}, {:data => {:placeholder => 'Selecciona un país'}}

@@ -1,14 +1,14 @@
-- @page_title = 'New Order'
+- @page_title = 'Nueva Orden'
 = content_for :header do
-  %p.buttons= link_to "Back to orders", :orders, :class => 'button grey'
+  %p.buttons= link_to "Regresar", :orders, :class => 'button grey'
   %h2.orders
-    New Order
+    Nueva Orden
 
 = form_for @order, :html => {:class => 'orderForm newOrder'} do |f|
   = f.error_messages
   = render 'form', :f => f
-  = field_set_tag "Ordered Products", :class => 'padded' do
+  = field_set_tag "Productos ordenados", :class => 'padded' do
     = render 'order_items_form', :f => f
   %p.submit
-    = f.submit "Create Order", :class => 'button green'
-    = link_to "Cancel", :orders, :class => 'button grey'
+    = f.submit "Crear Orden", :class => 'button green'
+    = link_to "Cancelar", :orders, :class => 'button grey'
