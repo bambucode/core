@@ -11,6 +11,7 @@ Plataforma e-commerce basada en Rails 4 en español.
 * Mantenimiento de impuestos
 * Flujo de orden personalizado
 * Mantenimiento de envio contemplando el peso del producto
+* Fork de https://github.com/grapheno/core
 
 ## Getting Started
 
@@ -22,7 +23,7 @@ Empezar a trabajar con shoppe es muy simple. Solo sigue las siguientes instrucci
 
     rails new mi_tienda
     cd mi_tienda
-    echo "gem 'shoppe', :git => 'https://github.com/grapheno/core'" >> Gemfile
+    echo "gem 'shoppe', :git => 'https://github.com/bambucode/core'" >> Gemfile
     bundle
     rake db:create
     rails generate shoppe:setup
